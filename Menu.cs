@@ -7,7 +7,7 @@ namespace EditorHTML
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.Black;
-
+            
             DrawScream();
             Options();
 
@@ -54,7 +54,7 @@ namespace EditorHTML
             Console.SetCursorPosition(3, 3);
             Console.WriteLine("=======================");
             Console.SetCursorPosition(3, 4);
-            Console.WriteLine("Selecione uma Opção abaixo");
+            Console.WriteLine("Selecione uma OpÃ§Ã£o abaixo");
             Console.SetCursorPosition(3, 6);
             Console.WriteLine("1 - Novo Arquivo");
             Console.SetCursorPosition(3, 7);
@@ -62,7 +62,7 @@ namespace EditorHTML
             Console.SetCursorPosition(3, 9);
             Console.WriteLine("0 - Sair");
             Console.SetCursorPosition(3, 10);
-            Console.Write("Opção:");
+            Console.Write("OPÃ‡ÃƒO:");
 
         } 
 

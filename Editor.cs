@@ -30,18 +30,34 @@ namespace EditorHTML
 
 			Console.WriteLine("--------------");
 
-			WantSave();
+			string text = file.ToString();
+
+			Save(text);
 
 		}
 
-		public static void WantSave() {
+		public static void Save(string text) {
 
-			Console.WriteLine(" Deseja salvar o arquivo? (S/N)");
+			Console.WriteLine("- Deseja salvar o arquivo? (S/N)");
 			string res = Console.ReadLine().ToLower();
 
 			if (res == "s")
 			{
-				Save();
+				Console.Clear();
+				Console.WriteLine(@" Qual caminho e nome do arquivo? (Ex: caminho\nomedoarquivo.html)");
+				string path = Console.ReadLine();
+
+
+				using (var arquivo = new StreamWriter(path))
+				{
+				arquivo.Write(text);
+				}
+
+				Console.WriteLine($"Arquivo salvo em '{path}' com sucesso!");
+				Console.WriteLine($"Retornando ao MENU");
+				Thread.Sleep(3000);
+
+				Menu.Show();
 			}
 
 			if (res == "n")
@@ -53,30 +69,10 @@ namespace EditorHTML
 
 			else
 			{
-				Console.WriteLine("Opção incorreta.");
-				WantSave();
+				Console.WriteLine("Opï¿½ï¿½o incorreta.");
+				Save(text);
 			}
 
 		}
-
-		public static void Save() {
-			Console.Clear();
-			Console.WriteLine("Qual caminho e nome do arquivo? (Ex: caminho\nomedoarquivo.html)");
-			string path = Console.ReadLine();
-
-			using (var file = new StreamWriter(path))
-			{
-				file.Write();
-			}
-
-			Console.WriteLine($"Arquivo salvo em '{path}' com sucesso!");
-			Console.ReadLine();
-
-			Menu.Show();
-		}
-
-
-
-
 	}
 }
