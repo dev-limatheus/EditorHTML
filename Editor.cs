@@ -26,19 +26,16 @@ namespace EditorHTML
 			{ 
 				file.Append(Console.ReadLine());
 				file.Append(Environment.NewLine);
-			} while (Console.ReadKey().Key != ConsoleKey.Escape);
+			}
+            while (Console.ReadKey().Key != ConsoleKey.Escape);
+            Console.WriteLine("----------------------------------------");
+            Viewer.Show(file.ToString());
+        }
 
-			Console.WriteLine("--------------");
-
-			string text = file.ToString();
-
-			Save(text);
-
-		}
-
-		public static void Save(string text) {
-
-			Console.WriteLine("- Deseja salvar o arquivo? (S/N)");
+		public static void Save(string text)
+		{
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("- Deseja salvar o arquivo? (S/N)");
 			string res = Console.ReadLine().ToLower();
 
 			if (res == "s")
@@ -50,7 +47,7 @@ namespace EditorHTML
 
 				using (var arquivo = new StreamWriter(path))
 				{
-				arquivo.Write(text);
+					arquivo.Write(text);
 				}
 
 				Console.WriteLine($"Arquivo salvo em '{path}' com sucesso!");
